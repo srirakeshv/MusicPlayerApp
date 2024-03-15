@@ -1,0 +1,31 @@
+.scrollable-container {
+  width: 80px; /* Set the desired width */
+  overflow: auto; /* or overflow: scroll; */
+}
+
+.singer-name {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.singer-name .singer {
+  display: inline-flex; /* Ensure both elements are displayed on the same line */
+  align-items: center; /* Align items vertically */
+}
+
+.music-icon {
+  display: inline-block; /* Ensure the icon and text are displayed inline */
+}
+
+.singer-name .singer {
+  animation: scroll 20s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
