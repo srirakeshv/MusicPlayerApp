@@ -2,8 +2,14 @@ import React from "react";
 import { Play, Music4 } from "lucide-react";
 import MusicArray from "../../Music/MusicArray";
 import "../../Css/App.css";
+import Player from "./Player";
 
-const Card = () => {
+const Card = ({ onCardClick }) => {
+  // const cardPlayClick = (index) => {
+  //   console.log(index);
+  //   return <Player index={index} />;
+  // };
+
   return (
     <div className="px-3 py-5 flex gap-3">
       {MusicArray.map((music, index) => (
@@ -35,7 +41,7 @@ const Card = () => {
               </div>
             </div>
             <div className="w-10 h-10 rounded-full bg-slate-100 flex justify-center items-center">
-              <Play />
+              <Play onClick={() => onCardClick(index)} />
             </div>
           </div>
         </div>
