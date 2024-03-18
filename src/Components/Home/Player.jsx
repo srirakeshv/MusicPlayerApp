@@ -42,6 +42,21 @@ const Player = ({ index }) => {
     console.log(index);
   }, [index]);
 
+  useEffect(() => {
+    const threshold = 0.5; // Define a threshold for considering the song ended
+    if (audioRef.current.currentTime >= audioRef.current.duration - threshold) {
+      const nextIndex = (currsong + 1) % MusicArray.length;
+      setcurrsong(nextIndex);
+      audioRef.current.src = `${process.env.PUBLIC_URL}${MusicArray[nextIndex].songLink}`;
+      audioRef.current.play();
+      setPauseActive(true);
+      setPlayActive(false);
+      console.log("next");
+    } else {
+      console.log("same");
+    }
+  }, [currsong, audioRef.current.currentTime, audioRef.current.duration]);
+
   // play function
   const handleplay = () => {
     if (index !== undefined) {
